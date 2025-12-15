@@ -1,0 +1,3 @@
+activate myflaskenv
+pip install Flask-Restful
+pip install Flask-JWT
