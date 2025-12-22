@@ -1,0 +1,26 @@
+/* styles/custom.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #eef;
+  margin: 20px;
+}
+
+h1 {
+  color: #336699; /* A nice blue color */
+  text-align: center;
+  border-bottom: 2px solid #336699;
+  padding-bottom: 10px;
+}
+
+p {
+  color: #555;
+  line-height: 1.6;
+}
+
+code {
+  background-color: #f8f9fa;
+  padding: 2px 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-family: monospace;
+}

@@ -1,0 +1,7 @@
+By default, Flask looks for static files in a folder named "static" in your project directory.
+
+However, you can customize this location to suit your project structure.To set a custom static folder path,
+you can use the 'static_folder' parameter when initializing your Flask app. Here's an example:
+from flask import Flask
+
+app = Flask(__name__, static_folder='my_static_files')

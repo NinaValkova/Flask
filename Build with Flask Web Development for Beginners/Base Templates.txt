@@ -1,0 +1,51 @@
+A base template serves as a foundation for other templates, 
+allowing you to define a common structure that can be shared across different pages of your website.
+
+1) Create a base template:
+Start by creating a file, typically named "base.html",
+which will contain the common elements of your website such as the HTML structure,
+head section, navigation bar, and footer.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Default Title{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <!-- Navigation menu items -->
+    </nav>
+    
+    {% block content %}
+    <!-- This block will be filled by child templates -->
+    {% endblock %}
+    
+    <footer>
+        <!-- Footer content -->
+    </footer>
+</body>
+</html>
+
+2) Use placeholder blocks:
+Within your base template, you'll define placeholder blocks using Jinja2 syntax.
+These blocks represent areas that can be customized in child templates.
+For example:
+
+3) Extend the base template
+In your child templates, you'll extend the base template and override the blocks as needed.
+"home.html" template:
+{% extends "base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+<h1>Welcome to our website!</h1>
+<p>This is the home page content.</p>
+{% endblock %}
+
+4) Render the template: In your Flask routes, you'll render these child templates as usual.
+Flask and Jinja2 will automatically combine the base template with the child template:
+
+@app.route('/')
+def home():
+    return render_template('home.html')

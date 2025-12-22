@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thermostat Control (Using POST)</title> {# Updated title #}
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .temperature-display {
+            font-size: 2.5em; font-weight: bold; color: #333;
+            background-color: #f0f0f0; padding: 20px; border-radius: 8px;
+            display: inline-block; margin-bottom: 20px;
+        }
+        .update-form {
+            margin-top: 20px; padding: 15px; border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        .update-form label { margin-right: 5px; }
+        .update-form input[type="number"] { padding: 5px; width: 60px; margin-right: 10px;}
+        .update-form button { padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <h1>Simple Thermostat</h1> {# Updated heading #}
+
+    <div class="temperature-display">
+        Current Target: {{ current_temp }}°C
+    </div>
+
+    <div class="update-form">
+        <form action="{{ url_for('set_temperature') }}" method="POST">
+            <label for="temperature">New Temperature (°C):</label>
+            <input type="number" id="temperature" name="temperature" value="{{ current_temp }}" required>
+
+            <button type="submit">Set Temperature</button>
+        </form>
+    </div>
+
+</body>
+</html>

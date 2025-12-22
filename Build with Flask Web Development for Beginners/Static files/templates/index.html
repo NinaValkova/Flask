@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- {{ url_for('static', filename='custom.css') }} - This is Jinja2 template syntax, used in Flask to generate URLs.
+    url_for('static', ...): Tells Flask to generate the correct URL for a static file.
+    ilename='custom.css': Looks for custom.css inside your static folder. -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}">
+</head>
+<body>
+    <h1>Welcome to the Flask Custom CSS Demo!</h1>
+
+    <p>The styles applied to this page (like the blue heading, background color, and paragraph formatting) come from the <code>custom.css</code> file located in the <code>styles</code> directory.</p>
+</body>
+</html>

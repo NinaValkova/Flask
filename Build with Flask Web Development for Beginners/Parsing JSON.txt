@@ -1,0 +1,16 @@
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/parse', methods=['POST'])
+def parse_json():
+    # Parse JSON from the incoming request
+    data = request.get_json()
+    # Assume data is a dictionary with a "name" key
+    name = data.get('name', 'Guest')
+    return jsonify({"message": f"Hello, {name}!"})
+
+Explanation:
+The client sends a POST request with JSON data.
+The request.get_json() function converts the incoming JSON to a Python dictionary.
+A JSON response is then generated using jsonify.

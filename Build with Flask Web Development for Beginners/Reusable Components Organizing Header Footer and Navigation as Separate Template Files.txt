@@ -1,0 +1,19 @@
+1) Create a 'components' folder inside your 'templates' directory.
+
+2) Create separate files for each component:
+header.html
+footer.html
+navigation.html
+
+3) header.html:
+<header>
+  <h1>My Flask App</h1>
+</header>
+
+4)In your base template or individual page templates, you can now include these components using Jinja2's include statement
+{% include 'components/header.html' %}
+{% include 'components/navigation.html' %}
+
+<!-- Your page content goes here -->
+
+{% include 'components/footer.html' %}

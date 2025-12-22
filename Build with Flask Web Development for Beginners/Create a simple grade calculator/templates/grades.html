@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+</head>
+<body>
+    <h1>Student Grades</h1>
+    <ul>
+        {% for student in students %}
+            <li>
+                {{ student.name }}: {{ student.score | round(1) }}
+                {% if student.score >= 60 %}
+                    - Pass
+                {% else %}
+                    - Fail
+                {% endif %}
+            </li>
+        {% endfor %}
+</body>
+</html>

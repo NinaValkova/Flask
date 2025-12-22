@@ -1,0 +1,42 @@
+<!-- my_flask_app/templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- The title block can be overridden by child templates -->
+    <title>{% block title %}My Flask App{% endblock %}</title>
+    <style>
+        /* Basic body styling */
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure footer sticks to bottom */
+        }
+        /* Main content area styling */
+        .content {
+            flex-grow: 1; /* Allow content to take up available space */
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Include the header component -->
+    
+{% include 'components/header.html' %}
+
+
+    <!-- Main content block for child templates to fill -->
+    <div class="content">
+        {% block content %} Header and Footer are loaded from components file {% endblock %}
+    </div>
+
+    <!-- Include the footer component -->
+
+{% include 'components/footer.html' %}
+</body>
+</html>

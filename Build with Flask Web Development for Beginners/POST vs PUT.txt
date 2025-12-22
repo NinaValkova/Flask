@@ -1,0 +1,4 @@
+When to use POST vs PUT:
+
+Use POST when creating new resources or submitting form data
+Use PUT when updating existing resources or replacing data

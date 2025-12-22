@@ -1,0 +1,12 @@
+Here are some best practices for organizing your static files in Flask:
+
+1) Use the default 'static' folder: Flask automatically looks for static files in a folder named 'static'
+in your project root. Stick to this convention unless you have a specific reason to change it.
+
+2) Create subdirectories: Inside the 'static' folder, create separate subdirectories for
+different types of assets:
+static/css: For your CSS files
+static/js: For your JavaScript files
+static/images: For your image files
+
+3) Use meaningful file names: Give your files descriptive names that reflect their purpose, e.g., 'main.css', 'user_profile.js', or 'logo.png'.

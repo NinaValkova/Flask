@@ -1,0 +1,10 @@
+Dynamic routing vs GET requests
+Dynamic routes are used when part of the URL can change depending on what you want to access.
+-The URL path includes a variable (like a user ID, product name, etc.)
+-You want to show different data based on the path
+
+
+A GET request is a type of HTTP request.
+It’s the default method used when visiting a page in a browser. It's used to retrieve data.
+-You want to get data from query parameters (like search or filters)
+-You’re not changing any data on the server
