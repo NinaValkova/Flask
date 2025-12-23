@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <title>User Search</title>
+</head>
+<body>
+    <h1>Search Users</h1>
+
+    <form method="POST" action="/search">
+        {{ form.search.label }}<br>
+        {{ form.search(size=40) }}<br>
+        {% for error in form.search.errors %}
+            <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}
+        <p>{{ form.submit() }}</p>
+    </form>
+
+    <h2>Results:</h2>
+    {% if results %}
+        <ul>
+            {% for user in results %}
+                <li>{{ user.name }} - {{ user.email }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</body>
+</html>

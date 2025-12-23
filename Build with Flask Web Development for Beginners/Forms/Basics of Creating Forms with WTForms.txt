@@ -1,0 +1,55 @@
+Create forms in Flask using WTForms, a powerful library that simplifies form handling.
+
+WTForms are useful because it helps us:
+Create and manage forms in Python classes instead of writing HTML manually.
+Automatically handle form validation (e.g., required fields, email formats, value ranges).
+Make it easier to show form errors and retain user inputs
+
+
+from flask import Flask, render_template, request, redirect, url_for
+from wtforms import Form, StringField, SubmitField
+from wtforms.validators import DataRequired
+
+app = Flask(__name__)
+
+
+#Defining the form - the following defines a custom form called NameForm with:
+#- A name field that’s required (can’t be empty).
+#- A submit button labeled “Submit”.
+class NameForm(Form):
+    name = StringField('Name', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+@app.route('/', methods=['GET'])
+def show_form():
+    form = NameForm()
+    return render_template('register.html', form=form)
+
+@app.route('/submit', methods=['POST'])
+def handle_submit():
+    form = NameForm(request.form)
+    if form.validate():
+        name = form.name.data
+        return f'<h1>Hello, {name}!</h1>'
+    return redirect(url_for('show_form'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+<!doctype html>
+<html>
+<head>
+    <title>Name Input</title>
+</head>
+<body>
+    <h1>Enter Your Name</h1>
+    <form method="POST" action="/submit">
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=30) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+</body>
+</html>
